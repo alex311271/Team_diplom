@@ -10,6 +10,7 @@ public class GameStoreTest {
 
     @Test
     public void shouldAddGame() {       //Проверка создания записи о игре в каталоге
+
         GameStore store = new GameStore();
 
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
@@ -18,22 +19,24 @@ public class GameStoreTest {
     }
 
     @Test
-    public void shouldGetMostPlayer() {  //Проверка записи времени проведенного в игре и его суммирование
-        GameStore store = new GameStore();
-        store.addPlayTime("Ivan", 5);
-        store.addPlayTime("Aleksey", 7);
-        store.addPlayTime("Ivan", 5);
+    public void shouldGetMostPlayer() {  //Проверка выявление игрока дольше всех игравших в игру
 
-        String expected = "Ivan";
+        GameStore store = new GameStore();
+        store.addPlayTime("Ivan", 9);
+        store.addPlayTime("Aleksey", 7);
+        store.addPlayTime("Andrey", 10);
+
+
+
+        String expected = "Andrey";
         String actual = store.getMostPlayer();
 
         assertEquals(expected, actual);
-
-
     }
 
     @Test
     public void shouldGetSumPlayedTime() {
+
         GameStore store = new GameStore();
         store.addPlayTime("Ivan", 5);
         store.addPlayTime("Aleksey", 7);
