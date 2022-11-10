@@ -74,6 +74,7 @@ public class GameStore {
      * за играми этого каталога
      */
     public int getSumPlayedTime() {
+
         return 0;
     }
 }

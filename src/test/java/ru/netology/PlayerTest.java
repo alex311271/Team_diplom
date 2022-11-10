@@ -18,6 +18,44 @@ public class PlayerTest {
         int actual = player.sumGenre(game.getGenre());
         assertEquals(expected, actual);
     }
+    @Test
+    public void TestSum2Genre() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Мир танков", "Аркады");
+        Game game1 = store.publishGame("Клеопатра", "Стратегия");
+        Game game2 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
+        Player player = new Player("Petya");
+        player.installGame(game);
+        player.installGame(game1);
+        player.installGame(game2);
+        player.play(game, 2);
+        player.play(game1, 4);
+        player.play(game2, 6);
+
+        int expected = 8;
+        int actual = player.sumGenre("Аркады");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void MostPlayerGenre() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Мир танков", "Аркады");
+        Game game1 = store.publishGame("Клеопатра", "Стратегия");
+        Game game2 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+
+        Player player = new Player("Petya");
+        player.installGame(game);
+        player.installGame(game1);
+        player.installGame(game2);
+        player.play(game, 2);
+        player.play(game1, 4);
+        player.play(game2, 6);
+
+        Game expected = game;
+        Game actual = player.mostPlayerByGenre("Аркады");
+        assertEquals(expected, actual);
+    }
     // другие ваши тесты
 }
