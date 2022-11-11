@@ -53,8 +53,8 @@ public class PlayerTest {
         player.play(game1, 4);
         player.play(game2, 6);
 
-        Game expected = game;
-        Game actual = player.mostPlayerByGenre("Нетология Баттл Онлайн");
+        Game expected = game2;
+        Game actual = player.mostPlayerByGenre("Аркады");
         assertEquals(expected, actual);
     }
     // другие ваши тесты
