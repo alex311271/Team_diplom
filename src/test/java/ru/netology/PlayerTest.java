@@ -38,6 +38,7 @@ public class PlayerTest {
         assertEquals(expected, actual);
     }
 
+
     @Test
     public void MostPlayerGenre() {
         GameStore store = new GameStore();
@@ -57,5 +58,24 @@ public class PlayerTest {
         Game actual = player.mostPlayerByGenre("Аркады");
         assertEquals(expected, actual);
     }
+    @Test
+    public void shouldNoInstallGame() {
+        GameStore store = new GameStore();
+        Game game = store.publishGame("Мир танков", "Аркады");
+        Game game1 = store.publishGame("Клеопатра", "Стратегия");
+        Game game2 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+
+        Player player = new Player("Petya");
+        player.installGame(game);
+        player.installGame(game2);
+        player.play(game, 3);
+        player.play(game2, 2);
+
+
+        String expected = null;
+        Game actual = player.mostPlayerByGenre("Стратегия");
+        assertEquals(expected, actual);
+    }
+
     // другие ваши тесты
 }
