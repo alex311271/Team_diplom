@@ -42,8 +42,8 @@ public class GameStoreTest {
         store.addPlayTime("Ivan", 5);
 
         int expected = 17;
-        int acttual = store.getSumPlayedTime();
-        assertEquals(expected, acttual);
+        int actual = store.getSumPlayedTime();
+        assertEquals(expected, actual);
     }
 
     @Test
