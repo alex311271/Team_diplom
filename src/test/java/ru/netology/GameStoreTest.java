@@ -1,3 +1,4 @@
+
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,3 +85,4 @@ public class GameStoreTest {
         assertEquals(expected, actual);
     }
 }
+
